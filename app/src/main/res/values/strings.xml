@@ -5,4 +5,6 @@
     <string name="recipesfragment">Recipes</string>
     <string name="favourite_recipes_fragment">Favourites</string>
     <string name="food_joke">Joke</string>
+    <string name="floating_action_button">Floating action button</string>
+    <string name="dummyText">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</string>
 </resources>
