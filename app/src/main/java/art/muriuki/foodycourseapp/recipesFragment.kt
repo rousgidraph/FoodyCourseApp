@@ -18,6 +18,8 @@ class recipesFragment : Fragment() {
 
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.recyclerView.showShimmer() // TODO: this was demo purposes
         return view
 
     }
