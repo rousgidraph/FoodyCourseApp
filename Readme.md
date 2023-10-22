@@ -22,3 +22,8 @@ Credits [Sifu Stevdza-san](https://github.com/stevdza-san)
 > * Shimmer effect 
 > * Dark Mode theming 
 
+
+#### Branch Setup 
+
+1. Main => Upto date and stable
+2. feature/learning => current progress 
