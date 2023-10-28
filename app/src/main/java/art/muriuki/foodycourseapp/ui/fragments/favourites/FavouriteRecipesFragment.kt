@@ -15,7 +15,7 @@ class FavouriteRecipesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentFavouriteRecipesBinding.inflate(inflater, container, false)
         val view = binding.root

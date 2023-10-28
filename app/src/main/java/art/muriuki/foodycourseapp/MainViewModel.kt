@@ -1,25 +1,25 @@
 package art.muriuki.foodycourseapp
 
-import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import art.muriuki.foodycourseapp.data.Repository
 import art.muriuki.foodycourseapp.models.FoodRecipe
 import art.muriuki.foodycourseapp.util.NetworkResult
-import kotlinx.coroutines.ExecutorCoroutineDispatcher
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import retrofit2.Response
-import java.lang.Exception
+import javax.inject.Inject
 
-class MainViewModel @ViewModelInject constructor(
-    private val repository: Repository,
-    application: Application
-) : AndroidViewModel(application) {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    @ApplicationContext private val context: Context,
+    private val repository: Repository
+) : ViewModel() {
 
     var recipesResponse : MutableLiveData<NetworkResult<FoodRecipe>> = MutableLiveData()
 
@@ -42,7 +42,7 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
 
-    private fun handleFoodrecipesResponse(response: Response<FoodRecipe>): NetworkResult<FoodRecipe>? {
+    private fun handleFoodrecipesResponse(response: Response<FoodRecipe>): NetworkResult<FoodRecipe> {
         when{
             response.message().toString().contains("timeout") ->{
                 return NetworkResult.Error("Timeout")
@@ -65,7 +65,8 @@ class MainViewModel @ViewModelInject constructor(
     }
 
     private fun hasInternetConnection(): Boolean {
-        val connectivityManager = getApplication<Application>().getSystemService(
+
+        val connectivityManager = context.getSystemService(
             Context.CONNECTIVITY_SERVICE
         ) as ConnectivityManager
 
