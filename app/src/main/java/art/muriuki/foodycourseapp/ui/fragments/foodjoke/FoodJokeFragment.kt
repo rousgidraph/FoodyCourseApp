@@ -1,4 +1,4 @@
-package art.muriuki.foodycourseapp
+package art.muriuki.foodycourseapp.ui.fragments.foodjoke
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package art.muriuki.foodycourseapp
+package art.muriuki.foodycourseapp.ui.fragments.recipes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import art.muriuki.foodycourseapp.databinding.FragmentRecipesBinding
 
-class recipesFragment : Fragment() {
+class RecipesFragment : Fragment() {
 
     private var _binding: FragmentRecipesBinding? = null
     private val binding get() = _binding!!

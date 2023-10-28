@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/lightGray"
 
-    tools:context=".MainActivity"
+    tools:context=".ui.MainActivity"
     >
 <!--    tools:viewBindingIgnore="true" this is incase you want the xml to be ignored -->
     <androidx.fragment.app.FragmentContainerView
