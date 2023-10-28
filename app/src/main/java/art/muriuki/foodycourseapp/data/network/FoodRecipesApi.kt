@@ -1,4 +1,4 @@
-package art.muriuki.foodycourseapp
+package art.muriuki.foodycourseapp.data.network
 
 import art.muriuki.foodycourseapp.models.FoodRecipe
 import retrofit2.Response

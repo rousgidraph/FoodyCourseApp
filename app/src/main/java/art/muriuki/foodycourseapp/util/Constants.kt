@@ -1,4 +1,4 @@
-package art.muriuki.foodycourseapp
+package art.muriuki.foodycourseapp.util
 
 class Constants {
 
