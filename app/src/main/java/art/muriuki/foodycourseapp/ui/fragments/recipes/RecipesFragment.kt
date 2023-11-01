@@ -33,7 +33,6 @@ class RecipesFragment : Fragment() {
         _binding = FragmentRecipesBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val viewModelProvider = ViewModelProvider(requireActivity())
         mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
         setUpRecyclerView()
         requestApiData()
@@ -41,11 +40,6 @@ class RecipesFragment : Fragment() {
 
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        val viewModelProvider = ViewModelProvider(requireActivity())
-//        mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
-//        super.onViewCreated(view, savedInstanceState)
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
