@@ -14,10 +14,14 @@ import art.muriuki.foodycourseapp.adapters.RecipesAdapter
 import art.muriuki.foodycourseapp.databinding.FragmentRecipesBinding
 import art.muriuki.foodycourseapp.util.Constants
 import art.muriuki.foodycourseapp.util.NetworkResult
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+
 
 class RecipesFragment : Fragment() {
 
-    private lateinit var mainViewModel: MainViewModel
+
+    lateinit var mainViewModel: MainViewModel
     private val mAdapter by lazy { RecipesAdapter() }
     private var _binding: FragmentRecipesBinding? = null
     private val binding get() = _binding!!
@@ -37,6 +41,11 @@ class RecipesFragment : Fragment() {
 
     }
 
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        val viewModelProvider = ViewModelProvider(requireActivity())
+//        mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
+//        super.onViewCreated(view, savedInstanceState)
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
