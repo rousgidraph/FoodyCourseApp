@@ -8,11 +8,11 @@ plugins {
 
 android {
     namespace 'art.muriuki.foodycourseapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "art.muriuki.foodycourseapp"
-        minSdk 23
+        minSdk 33
         targetSdk 33
         versionCode 1
         versionName "1.0"
