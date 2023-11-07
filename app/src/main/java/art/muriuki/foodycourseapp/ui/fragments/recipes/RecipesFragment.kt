@@ -6,16 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import art.muriuki.foodycourseapp.MainViewModel
+import art.muriuki.foodycourseapp.viewModels.MainViewModel
 import art.muriuki.foodycourseapp.adapters.RecipesAdapter
 import art.muriuki.foodycourseapp.databinding.FragmentRecipesBinding
 import art.muriuki.foodycourseapp.util.Constants
+import art.muriuki.foodycourseapp.util.Constants.Companion.API_KEY
 import art.muriuki.foodycourseapp.util.NetworkResult
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
 class RecipesFragment : Fragment() {
@@ -78,12 +76,12 @@ class RecipesFragment : Fragment() {
     private fun applyQueries(): HashMap<String, String>{
         val queries : HashMap<String, String> = HashMap()
 
-        queries["apiKey"]=Constants.API_KEY
-        queries["number"]="50"
-        queries["type"]="snack"
-        queries["diet"]="vegan"
-        queries["addRecipeInformation"]="true"
-        queries["fillIngredients"]="true"
+        queries[Constants.QUERY_API_KEY]=API_KEY
+        queries[Constants.QUERY_NUMBER]="50"
+        queries[Constants.QUERY_TYPE]="snack"
+        queries[Constants.QUERY_DIET]="vegan"
+        queries[Constants.QUERY_ADD_RECIPE_INFORMATION]="true"
+        queries[Constants.QUERY_FILL_INGREDIENTS]="true"
 
         return queries
     }
