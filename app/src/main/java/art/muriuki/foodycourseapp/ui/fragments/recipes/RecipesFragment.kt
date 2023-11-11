@@ -36,6 +36,8 @@ class RecipesFragment : Fragment() {
         val view = binding.root
 
         mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
+        binding.lifecycleOwner = this
+        binding.mainViewModel = mainViewModel
         setUpRecyclerView()
         readDatabase()
         return view
