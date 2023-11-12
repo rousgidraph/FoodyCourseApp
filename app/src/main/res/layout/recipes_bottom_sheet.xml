@@ -49,18 +49,21 @@
 
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/main_course_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/main_course"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/side_dish_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/side_dish"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/dessert_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -68,60 +71,70 @@
 
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/appetizer_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/appetizer"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/salad_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/salad"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/bread_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/bread"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/breakfast_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/breakfast"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/soup_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/soup"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/sauce_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sauce"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/marinade_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/marinade"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/fingerfood_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/fingerfood"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/snack_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/snack"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/drink_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -172,18 +185,21 @@
 
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/gluten_free_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/gluten_free"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/ketogenic_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/ketogenic"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/vegetarian_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -191,36 +207,42 @@
 
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/vegan_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/vegan"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/pescetarian_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/pescetarian"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/paleo_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/paleo"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/primal_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/primal"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/low_fodmap_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/low_fodmap"/>
 
                 <com.google.android.material.chip.Chip
+                    style="@style/CustomChipStyle"
                     android:id="@+id/whole30_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -241,6 +263,7 @@
         android:layout_marginBottom="24dp"
         android:text="@string/apply"
         android:textAllCaps="false"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import art.muriuki.foodycourseapp.R
 import art.muriuki.foodycourseapp.viewModels.MainViewModel
 import art.muriuki.foodycourseapp.adapters.RecipesAdapter
 import art.muriuki.foodycourseapp.databinding.FragmentRecipesBinding
@@ -17,6 +19,7 @@ import art.muriuki.foodycourseapp.util.Constants
 import art.muriuki.foodycourseapp.util.Constants.Companion.API_KEY
 import art.muriuki.foodycourseapp.util.NetworkResult
 import art.muriuki.foodycourseapp.util.observeOnce
+import art.muriuki.foodycourseapp.viewModels.RecipesViewModel
 import kotlinx.coroutines.launch
 
 
@@ -26,6 +29,7 @@ class RecipesFragment : Fragment() {
     lateinit var mainViewModel: MainViewModel
     private val mAdapter by lazy { RecipesAdapter() }
     private var _binding: FragmentRecipesBinding? = null
+    private lateinit var recipesViewModel: RecipesViewModel
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,10 +40,17 @@ class RecipesFragment : Fragment() {
         val view = binding.root
 
         mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
+        recipesViewModel = ViewModelProvider(requireActivity())[RecipesViewModel::class.java]
         binding.lifecycleOwner = this
         binding.mainViewModel = mainViewModel
         setUpRecyclerView()
         readDatabase()
+
+        binding.recipesFab.setOnClickListener {
+            findNavController().navigate(R.id.action_recipesFragment_to_recipesBottomSheet)
+        }
+
+
         return view
 
     }
@@ -72,7 +83,7 @@ class RecipesFragment : Fragment() {
 
     private fun requestApiData(){
         Log.d("RecipesFragment", "requestApiData called ")
-        mainViewModel.getRecipes(applyQueries())
+        mainViewModel.getRecipes(recipesViewModel.applyQueries())
         mainViewModel.recipesResponse.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is NetworkResult.Success -> {
@@ -96,23 +107,24 @@ class RecipesFragment : Fragment() {
                 is NetworkResult.Loading ->{
                     showShimmerEffect()
                 }
+
+                else -> {}
             }
         }
     }
 
-
-    private fun applyQueries(): HashMap<String, String>{
-        val queries : HashMap<String, String> = HashMap()
-
-        queries[Constants.QUERY_API_KEY]=API_KEY
-        queries[Constants.QUERY_NUMBER]="50"
-        queries[Constants.QUERY_TYPE]="snack"
-        queries[Constants.QUERY_DIET]="vegan"
-        queries[Constants.QUERY_ADD_RECIPE_INFORMATION]="true"
-        queries[Constants.QUERY_FILL_INGREDIENTS]="true"
-
-        return queries
-    }
+//    private fun applyQueries(): HashMap<String, String>{
+//        val queries : HashMap<String, String> = HashMap()
+//
+//        queries[Constants.QUERY_API_KEY]=API_KEY
+//        queries[Constants.QUERY_NUMBER]="50"
+//        queries[Constants.QUERY_TYPE]="snack"
+//        queries[Constants.QUERY_DIET]="vegan"
+//        queries[Constants.QUERY_ADD_RECIPE_INFORMATION]="true"
+//        queries[Constants.QUERY_FILL_INGREDIENTS]="true"
+//
+//        return queries
+//    }
 
     private fun showShimmerEffect() {
         binding.recyclerView.showShimmer()
