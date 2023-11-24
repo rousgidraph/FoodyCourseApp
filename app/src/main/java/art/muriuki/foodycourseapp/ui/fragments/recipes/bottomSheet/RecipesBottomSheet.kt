@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import art.muriuki.foodycourseapp.databinding.RecipesBottomSheetBinding
 import art.muriuki.foodycourseapp.util.Constants.Companion.DEFAULT_DIET_TYPE
 import art.muriuki.foodycourseapp.util.Constants.Companion.DEFAULT_MEAL_TYPE
 import art.muriuki.foodycourseapp.viewModels.RecipesViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import java.util.Locale
@@ -80,6 +82,10 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
                 dietTypeChipId
             )
             Log.d("Bottom Sheet", msg)
+
+            RecipesBottomSheetDirections
+//            val action = RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
+//            findNavController().navigate(action)
         }
 
 

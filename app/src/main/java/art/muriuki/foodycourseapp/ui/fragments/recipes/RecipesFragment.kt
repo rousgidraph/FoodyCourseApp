@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import art.muriuki.foodycourseapp.R
 import art.muriuki.foodycourseapp.viewModels.MainViewModel
@@ -25,7 +26,7 @@ import kotlinx.coroutines.launch
 
 class RecipesFragment : Fragment() {
 
-
+//    private val args by navArgs<RecipesF>()
     lateinit var mainViewModel: MainViewModel
     private val mAdapter by lazy { RecipesAdapter() }
     private var _binding: FragmentRecipesBinding? = null
@@ -64,7 +65,7 @@ class RecipesFragment : Fragment() {
     private fun readDatabase() {
         lifecycleScope.launch {
             mainViewModel.readRecipes.observeOnce( viewLifecycleOwner) { database ->
-                if (database.isNotEmpty()) {
+                if (database.isNotEmpty() && !args.backFromBottomSheet) {
                     Log.d("RecipesFragment", "readDatabase called ")
                     mAdapter.setData(database[0].foodRecipe)
                     hideShimmerEffect()
