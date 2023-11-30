@@ -85,7 +85,7 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
 
 
             val action = RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
-//            findNavController().navigate(action)
+            findNavController().navigate(action)
         }
 
 

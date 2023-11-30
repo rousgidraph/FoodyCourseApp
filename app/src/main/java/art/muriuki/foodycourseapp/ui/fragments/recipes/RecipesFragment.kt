@@ -13,13 +13,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import art.muriuki.foodycourseapp.R
-import art.muriuki.foodycourseapp.viewModels.MainViewModel
 import art.muriuki.foodycourseapp.adapters.RecipesAdapter
 import art.muriuki.foodycourseapp.databinding.FragmentRecipesBinding
-import art.muriuki.foodycourseapp.util.Constants
-import art.muriuki.foodycourseapp.util.Constants.Companion.API_KEY
 import art.muriuki.foodycourseapp.util.NetworkResult
 import art.muriuki.foodycourseapp.util.observeOnce
+import art.muriuki.foodycourseapp.viewModels.MainViewModel
 import art.muriuki.foodycourseapp.viewModels.RecipesViewModel
 import kotlinx.coroutines.launch
 
