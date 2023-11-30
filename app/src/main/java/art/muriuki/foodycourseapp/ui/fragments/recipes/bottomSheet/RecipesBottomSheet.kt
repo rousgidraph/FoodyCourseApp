@@ -83,8 +83,8 @@ class RecipesBottomSheet : BottomSheetDialogFragment() {
             )
             Log.d("Bottom Sheet", msg)
 
-            RecipesBottomSheetDirections
-//            val action = RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
+
+            val action = RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(true)
 //            findNavController().navigate(action)
         }
 

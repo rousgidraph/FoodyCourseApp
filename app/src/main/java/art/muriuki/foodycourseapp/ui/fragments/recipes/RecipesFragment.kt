@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 
 class RecipesFragment : Fragment() {
 
-//    private val args by navArgs<RecipesF>()
+    private val args by navArgs<RecipesFragmentArgs>()
     lateinit var mainViewModel: MainViewModel
     private val mAdapter by lazy { RecipesAdapter() }
     private var _binding: FragmentRecipesBinding? = null
