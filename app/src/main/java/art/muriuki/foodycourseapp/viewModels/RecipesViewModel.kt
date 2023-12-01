@@ -1,7 +1,9 @@
 package art.muriuki.foodycourseapp.viewModels
 
 import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import art.muriuki.foodycourseapp.data.DataStoreRepository
 import art.muriuki.foodycourseapp.util.Constants
@@ -24,13 +26,21 @@ class RecipesViewModel @Inject constructor(
 
     private var mealType = DEFAULT_MEAL_TYPE
     private var dietType = DEFAULT_DIET_TYPE
-
+    var networkStatus = false
+    var backOnLine = false
     val readMealAndDietType = dataStoreRepository.readMealAndDietType
+    val readBackOnline = dataStoreRepository.readBackOnline.asLiveData()
 
     fun saveMealAndDietType( mealType: String, mealTypeId: Int, dietType: String, dietTypeId: Int)=
         viewModelScope.launch(Dispatchers.IO) {
         dataStoreRepository.saveMealAndDietType(mealType, mealTypeId, dietType, dietTypeId)
     }
+
+    fun saveBackonline(backOnline : Boolean) =
+        viewModelScope.launch(Dispatchers.IO) {
+            dataStoreRepository.saveBackOnline(backOnline)
+        }
+
     fun applyQueries(): HashMap<String, String>{
         viewModelScope.launch {
             readMealAndDietType.collect{value ->
@@ -48,4 +58,15 @@ class RecipesViewModel @Inject constructor(
         return queries
     }
 
+    fun showNetworkStatus(){
+        if(!networkStatus){
+            Toast.makeText(context,"No Internet Connection",Toast.LENGTH_SHORT).show()
+            saveBackonline(true)
+        }else if(networkStatus){
+            if(backOnLine){
+            Toast.makeText(context,"We are back online",Toast.LENGTH_SHORT).show()
+            saveBackonline(false)
+            }
+        }
+    }
 }

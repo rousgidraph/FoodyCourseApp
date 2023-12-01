@@ -8,6 +8,7 @@ import androidx.datastore.preferences.edit
 import androidx.datastore.preferences.emptyPreferences
 import androidx.datastore.preferences.preferencesKey
 import art.muriuki.foodycourseapp.util.Constants
+import art.muriuki.foodycourseapp.util.Constants.Companion.PREFERENCES_BACK_ONLINE
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import kotlinx.coroutines.flow.Flow
@@ -26,6 +27,7 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
         val selectedMealTypeID = preferencesKey<Int>(Constants.PREFERENCES_MEAL_TYPE_ID)
         val selectedDietType = preferencesKey<String>(Constants.PREFERENCES_DIET_TYPE)
         val selectedDietTypeId = preferencesKey<Int>(Constants.PREFERENCES_DIET_TYPE_ID)
+        val backOnLine = preferencesKey<Boolean>(PREFERENCES_BACK_ONLINE)
 
     }
 
@@ -45,6 +47,12 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
             preferences[PreferenceKeys.selectedMealTypeID] = mealTypeId
             preferences[PreferenceKeys.selectedDietType] = dietType
             preferences[PreferenceKeys.selectedDietTypeId] = dietTypeId
+        }
+    }
+
+    suspend fun saveBackOnline(backOnline: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[PreferenceKeys.backOnLine] = backOnline
         }
     }
 
@@ -71,6 +79,17 @@ class DataStoreRepository @Inject constructor(@ApplicationContext private val co
             )
         }
 
+    val readBackOnline: Flow<Boolean> = dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }.map { preferences ->
+            val backOnline = preferences[PreferenceKeys.backOnLine] ?: false
+            backOnline
+        }
 
     data class MealAndDietType(
         val selectedMealType: String,
