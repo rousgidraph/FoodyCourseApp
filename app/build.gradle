@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-//    id 'androidx.navigation.safeargs'
+    id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.activity:activity:1.8.0'
     def lifecycle_version = "2.6.2"
     def arch_version = "2.2.0"
 
