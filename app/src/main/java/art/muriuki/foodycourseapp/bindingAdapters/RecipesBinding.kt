@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
-import art.muriuki.foodycourseapp.data.database.RecipesEntity
+import art.muriuki.foodycourseapp.data.database.Entities.RecipesEntity
 import art.muriuki.foodycourseapp.models.FoodRecipe
 import art.muriuki.foodycourseapp.models.Result
 import art.muriuki.foodycourseapp.ui.fragments.recipes.RecipesFragmentDirections

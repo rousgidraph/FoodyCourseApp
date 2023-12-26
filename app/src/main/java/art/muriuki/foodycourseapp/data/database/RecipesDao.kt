@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import art.muriuki.foodycourseapp.data.database.Entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

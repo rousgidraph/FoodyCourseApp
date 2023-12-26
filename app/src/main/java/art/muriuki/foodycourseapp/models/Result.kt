@@ -31,7 +31,7 @@ data class Result(
     val readyInMinutes: Int,
 
     @SerializedName("sourceName")
-    val sourceName: String,
+    val sourceName: String?,
     @SerializedName("sourceUrl")
     val sourceUrl: String,
 

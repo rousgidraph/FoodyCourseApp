@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import art.muriuki.foodycourseapp.data.Repository
-import art.muriuki.foodycourseapp.data.database.RecipesEntity
+import art.muriuki.foodycourseapp.data.database.Entities.RecipesEntity
 import art.muriuki.foodycourseapp.models.FoodRecipe
 import art.muriuki.foodycourseapp.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel

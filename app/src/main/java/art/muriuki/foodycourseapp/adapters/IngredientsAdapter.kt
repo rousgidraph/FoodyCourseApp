@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import art.muriuki.foodycourseapp.R
 import art.muriuki.foodycourseapp.databinding.IngredientsRowLayoutBinding
 import art.muriuki.foodycourseapp.models.ExtendedIngredient
 import art.muriuki.foodycourseapp.util.Constants.Companion.BASE_IMAGE_URL
@@ -32,7 +33,10 @@ class IngredientsAdapter : RecyclerView.Adapter<IngredientsAdapter.MyViewHolder>
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val binding = IngredientsRowLayoutBinding.bind(holder.itemView)
-        binding.ingredientsImageView.load(BASE_IMAGE_URL + ingredientsList[position].image)
+        binding.ingredientsImageView.load(BASE_IMAGE_URL + ingredientsList[position].image){
+            crossfade(600)
+            error(R.drawable.ic_error_placeholder)
+        }
         binding.ingredientName.text= ingredientsList[position].name.capitalize(Locale.ROOT)
         binding.ingredientAmount.text = ingredientsList[position].amount.toString()
         binding.ingredientUnit.text = ingredientsList[position].unit
