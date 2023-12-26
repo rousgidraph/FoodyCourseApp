@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import art.muriuki.foodycourseapp.R
 import art.muriuki.foodycourseapp.databinding.FragmentOverviewFragementBinding
 import art.muriuki.foodycourseapp.models.Result
+import art.muriuki.foodycourseapp.util.Constants.Companion.RECIPE_RESULT_KEY
 import coil.load
 import org.jsoup.Jsoup
 
@@ -25,7 +26,7 @@ class OverviewFragement : Fragment() {
         _binding = FragmentOverviewFragementBinding.inflate(inflater, container, false)
         val view = binding.root
         val args = arguments
-        val myBundle: Result? = args?.getParcelable("recipeBundle")
+        val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
 
         binding.mainimageView.load(myBundle?.image)
         binding.titleTextView.text = myBundle?.title

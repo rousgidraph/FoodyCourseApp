@@ -14,6 +14,7 @@ import art.muriuki.foodycourseapp.databinding.ActivityDetailsBinding
 import art.muriuki.foodycourseapp.ui.fragments.ingredients.IngredientsFragment
 import art.muriuki.foodycourseapp.ui.fragments.instructions.InstructionFragment
 import art.muriuki.foodycourseapp.ui.fragments.overview.OverviewFragement
+import art.muriuki.foodycourseapp.util.Constants.Companion.RECIPE_RESULT_KEY
 
 
 class DetailsActivity : AppCompatActivity() {
@@ -42,7 +43,7 @@ class DetailsActivity : AppCompatActivity() {
         title.add("Instructions")
 
         val resultBundle = Bundle()
-        resultBundle.putParcelable("recipeBundle",args.Result)
+        resultBundle.putParcelable(RECIPE_RESULT_KEY,args.Result)
 
         val adapter = PagerAdapter(resultBundle=resultBundle, fragments = fragments, title= title, fm= supportFragmentManager)
         binding.viewPager.adapter = adapter
