@@ -7,7 +7,7 @@ import art.muriuki.foodycourseapp.util.Constants.Companion.FAVOURITE_RECIPES_TAB
 
 @Entity(tableName = FAVOURITE_RECIPES_TABLE)
 class FavouritesEntity (
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)""
     var id: Int ,
     var result: Result
 )
