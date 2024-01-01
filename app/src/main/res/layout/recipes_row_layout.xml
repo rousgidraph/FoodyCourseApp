@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:id="@+id/recipesRowLayout">
+        android:id="@+id/recipesRowLayout"
+        onRecipeClickListener="@{result}">
 
 
         <com.google.android.material.card.MaterialCardView
@@ -70,7 +71,7 @@
                     android:layout_marginTop="12dp"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:text="@{result.summary}"
+                    parseHtml="@{result.summary}"
                     android:textColor="@color/darkGray"
                     app:layout_constraintEnd_toEndOf="@+id/titleTextView"
                     app:layout_constraintStart_toStartOf="@+id/titleTextView"
@@ -84,10 +85,10 @@
                     android:layout_marginBottom="36dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/heartTextView"
-                    app:layout_constraintHorizontal_bias="0.0"
+
                     app:layout_constraintStart_toStartOf="@+id/heartTextView"
                     app:layout_constraintTop_toBottomOf="@+id/descriptionTextView"
-                    app:layout_constraintVertical_bias="0.0"
+
                     app:srcCompat="@drawable/ic_heart"
                     app:tint="@color/red" />
 
@@ -119,7 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="@+id/clockTextView"
-                    app:layout_constraintHorizontal_bias="0.0"
+
                     app:tint="@color/yellow"
                     app:layout_constraintStart_toStartOf="@+id/clockTextView"
                     app:layout_constraintTop_toTopOf="@+id/heartImageView"
