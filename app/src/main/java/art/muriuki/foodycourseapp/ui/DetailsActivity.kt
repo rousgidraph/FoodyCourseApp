@@ -2,6 +2,7 @@ package art.muriuki.foodycourseapp.ui
 
 import android.os.Bundle
 import android.telecom.Call.Details
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
@@ -29,6 +30,8 @@ class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
     private val args by navArgs<DetailsActivityArgs>()
     private val mainViewModel: MainViewModel by viewModels()
+    private var recipeSaved= false
+    private var savedRecipeId = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -61,16 +64,38 @@ class DetailsActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.details_menu,menu)
+        val menuItem = menu?.findItem(R.id.save_to_favourites_menu)
+        changeMenuItemColor(menuItem!!,R.color.white)
+        checkSavedRecipe(menuItem!!)
         return  true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId== android.R.id.home){
             finish()
-        }else if (item.itemId== R.id.save_to_favourites_menu){
+        }else if (item.itemId== R.id.save_to_favourites_menu && !recipeSaved){
             saveToFavourites(item)
+        }else if(item.itemId== R.id.save_to_favourites_menu && recipeSaved){
+            removeFromFavourites(item)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun checkSavedRecipe(menuItem: MenuItem) {
+        mainViewModel.readFavoriteRecipes.observe(this) { favouritesEntity ->
+            try {
+                for (savedRecipe in favouritesEntity) {
+                    if (savedRecipe.result.recipeId == args.Result.recipeId) {
+                        changeMenuItemColor(menuItem, R.color.yellow)
+                        savedRecipeId = savedRecipe.id
+                        recipeSaved = true
+                    }
+                }
+            } catch (e: Exception) {
+                Log.d("detailsActivity", "checkSavedRecipe: " + e.message.toString())
+            }
+        }
+
     }
 
     private fun saveToFavourites(item: MenuItem) {
@@ -78,6 +103,15 @@ class DetailsActivity : AppCompatActivity() {
         mainViewModel.insertFavouriteRecipe(favouritesEntity)
         changeMenuItemColor(item, R.color.yellow)
         showSnackBar("RecipeSaved")
+        recipeSaved = true
+    }
+
+    private fun removeFromFavourites(item: MenuItem){
+        var favouritesEntity = FavouritesEntity(savedRecipeId,args.Result)
+        mainViewModel.deleteFavouriteRecipe(favouritesEntity)
+        changeMenuItemColor(item,R.color.white)
+        showSnackBar("Removed From Favourites")
+        recipeSaved = false
     }
 
     private fun showSnackBar(message: String) {

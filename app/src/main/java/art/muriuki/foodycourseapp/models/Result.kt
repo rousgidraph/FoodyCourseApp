@@ -23,7 +23,7 @@ data class Result(
     val glutenFree: Boolean,
 
     @SerializedName("id")
-    val id: Int,
+    val recipeId: Int,
     @SerializedName("image")
     val image: String,
 
