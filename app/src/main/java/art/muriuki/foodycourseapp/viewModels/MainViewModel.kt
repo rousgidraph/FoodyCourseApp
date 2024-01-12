@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import art.muriuki.foodycourseapp.data.Repository
-import art.muriuki.foodycourseapp.data.database.Entities.FavouritesEntity
-import art.muriuki.foodycourseapp.data.database.Entities.RecipesEntity
+import art.muriuki.foodycourseapp.data.database.entities.FavouritesEntity
+import art.muriuki.foodycourseapp.data.database.entities.RecipesEntity
 import art.muriuki.foodycourseapp.models.FoodRecipe
 import art.muriuki.foodycourseapp.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,6 +31,8 @@ class MainViewModel @Inject constructor(
     var readRecipes: LiveData<List<RecipesEntity>> = repository.local.readRecipes().asLiveData()
 
     var readFavoriteRecipes: LiveData<List<FavouritesEntity>> = repository.local.readFavouritesRecipes().asLiveData()
+
+
     private fun insertRecipes(recipesEntity: RecipesEntity) =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.insertRecipe(recipesEntity)

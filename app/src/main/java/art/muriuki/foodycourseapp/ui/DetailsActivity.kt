@@ -1,7 +1,6 @@
 package art.muriuki.foodycourseapp.ui
 
 import android.os.Bundle
-import android.telecom.Call.Details
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -10,11 +9,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navArgs
 import art.muriuki.foodycourseapp.R
 import art.muriuki.foodycourseapp.adapters.PagerAdapter
-import art.muriuki.foodycourseapp.data.database.Entities.FavouritesEntity
+import art.muriuki.foodycourseapp.data.database.entities.FavouritesEntity
 import art.muriuki.foodycourseapp.databinding.ActivityDetailsBinding
 import art.muriuki.foodycourseapp.ui.fragments.ingredients.IngredientsFragment
 import art.muriuki.foodycourseapp.ui.fragments.instructions.InstructionFragment

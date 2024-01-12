@@ -5,8 +5,8 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import art.muriuki.foodycourseapp.data.database.Entities.FavouritesEntity
-import art.muriuki.foodycourseapp.data.database.Entities.RecipesEntity
+import art.muriuki.foodycourseapp.data.database.entities.FavouritesEntity
+import art.muriuki.foodycourseapp.data.database.entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

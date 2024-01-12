@@ -1,8 +1,8 @@
 package art.muriuki.foodycourseapp.data
 
-import art.muriuki.foodycourseapp.data.database.Entities.FavouritesEntity
+import art.muriuki.foodycourseapp.data.database.entities.FavouritesEntity
 import art.muriuki.foodycourseapp.data.database.RecipesDao
-import art.muriuki.foodycourseapp.data.database.Entities.RecipesEntity
+import art.muriuki.foodycourseapp.data.database.entities.RecipesEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

@@ -6,8 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
-import art.muriuki.foodycourseapp.data.database.Entities.RecipesEntity
+import art.muriuki.foodycourseapp.data.database.entities.RecipesEntity
 import art.muriuki.foodycourseapp.models.FoodRecipe
 import art.muriuki.foodycourseapp.models.Result
 import art.muriuki.foodycourseapp.ui.fragments.recipes.RecipesFragmentDirections
@@ -38,10 +40,12 @@ class RecipesBinding {
         @JvmStatic
         fun errorImageViewVisibility(
             imageView: ImageView,
-            apiResponse: NetworkResult<FoodRecipe>?,
-            database: List<RecipesEntity>?
+            apiResponseMut: MutableLiveData<NetworkResult<FoodRecipe>>?,
+            database: LiveData<List<RecipesEntity>>?
         ) {
-            if (apiResponse is NetworkResult.Error && database.isNullOrEmpty()) {
+            val databaseData = database?.value
+            val apiResponse = apiResponseMut?.value
+            if (apiResponse is NetworkResult.Error && databaseData.isNullOrEmpty()) {
                 imageView.visibility = View.VISIBLE
             } else if (apiResponse is NetworkResult.Loading) {
                 imageView.visibility = View.INVISIBLE
