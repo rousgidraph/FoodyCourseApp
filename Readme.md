@@ -27,3 +27,11 @@ Credits [Sifu Stevdza-san](https://github.com/stevdza-san)
 
 1. Main => Upto date and stable
 2. feature/learning => current progress 
+
+### Shell powers 
+Resources
+https://developer.android.com/build/building-cmdline
+```shell
+./gradlew tasks 
+
+```

@@ -1,5 +1,6 @@
 package art.muriuki.foodycourseapp.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -45,6 +46,8 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
     }
 
     fun setData(newData: FoodRecipe) {
+        Log.d("RecipesAdapter", "oldData: "+recipes.toString())
+        Log.d("RecipesAdapter", "newData: "+newData.results.toString())
         val recipesDiffUtil = RecipesDiffUtil(recipes,newData.results)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
         recipes = newData.results

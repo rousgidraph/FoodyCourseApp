@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import art.muriuki.foodycourseapp.R
 import coil.load
+import org.jsoup.Jsoup
 
 class RowBinding {
 
@@ -48,6 +49,16 @@ class RowBinding {
 
                 }
             }
+        }
+
+
+        @JvmStatic
+        @BindingAdapter("parseHtml")
+        fun parseHtml(textView : TextView, description :String?){
+                if(description != null ){
+                    val desc = Jsoup.parse(description).text()
+                    textView.text = desc
+                }
         }
 
     }}
