@@ -26,4 +26,8 @@
     <color name="strokeColor" >@color/lightMediumGray</color>
     <color name="cardBackgroundColor" >@color/white</color>
     <color name="titleColor" >@color/darker</color>
+    
+    <color name="statusBarColor">@color/colorPrimaryDark</color>
+    <color name="contexualStatusBarColor">@color/darker</color>
+    <color name="contexualActionBarColor">@color/dark</color>
 </resources>

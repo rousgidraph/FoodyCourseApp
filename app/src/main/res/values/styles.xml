@@ -11,6 +11,7 @@
         <item name="colorAccent">#9D46FF</item>
         <item name="colorControlNormal">@color/white</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:actionModeBackground">@color/contexualActionBarColor</item>
     </style>
     
     <style name="customTabLayoutStyle" parent="Widget.Design.TabLayout">

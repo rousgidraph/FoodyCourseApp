@@ -5,5 +5,5 @@
         android:title="@string/delete_favourite_menu"
         android:icon="@drawable/ic_delete"
         app:showAsAction="ifRoom"
-        android:iconTint="@color/white"/>
+        android:iconTint="@color/black"/>
 </menu>
