@@ -2,11 +2,11 @@
 buildscript {
     ext {
         compose_ui_version = '1.4.0'
-        agp_version = '8.3.0-alpha14'
+        agp_version = '8.3.2'
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$agp_version"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.20"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.7.5"
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.48.1'
     }

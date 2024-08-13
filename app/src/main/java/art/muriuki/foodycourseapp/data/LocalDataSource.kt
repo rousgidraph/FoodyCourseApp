@@ -2,7 +2,9 @@ package art.muriuki.foodycourseapp.data
 
 import art.muriuki.foodycourseapp.data.database.entities.FavouritesEntity
 import art.muriuki.foodycourseapp.data.database.RecipesDao
+import art.muriuki.foodycourseapp.data.database.entities.FoodJokeEntity
 import art.muriuki.foodycourseapp.data.database.entities.RecipesEntity
+import art.muriuki.foodycourseapp.models.FoodJoke
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -17,6 +19,11 @@ class LocalDataSource @Inject constructor(
     fun readFavouritesRecipes(): Flow<List<FavouritesEntity>>{
         return recipesDao.readFavouriteRecipes()
     }
+
+     fun readFoodJoke(): Flow<List<FoodJokeEntity>>{
+        return recipesDao.readFoodJoke()
+    }
+
     suspend fun insertRecipe(recipesEntity: RecipesEntity){
         recipesDao.insertRecipes(recipesEntity)
     }
@@ -25,6 +32,9 @@ class LocalDataSource @Inject constructor(
         recipesDao.insertFavoriteRecipe(favouritesEntity)
     }
 
+    suspend fun insertFoodJoke(foodJoke: FoodJokeEntity){
+        recipesDao.insertFoodJoke(foodJoke)
+    }
     suspend fun deleteFavouriteRecipe(favouritesEntity: FavouritesEntity){
         recipesDao.deleteFavouriteRecipe(favouritesEntity)
     }
@@ -32,4 +42,5 @@ class LocalDataSource @Inject constructor(
     suspend fun  deleteAllFavouriteRecipes(){
         recipesDao.deleteAllFavouriteRecipes()
     }
+
 }
