@@ -15,4 +15,21 @@
     <color name="red">#FF4646</color>
     <color name="yellow">#FFC114</color>
     <color name="green">#00C980</color>
+
+    // Custom Chip Style
+    <color name="checkedChipBackgroundColor">#206200EA</color>
+    <color name="chipBackgroundColor">@color/lightGray</color>
+    <color name="checkedChipTextColor">@color/colorPrimary</color>
+    <color name="chipTextColor">@color/darkGray</color>
+
+    <color name="actionBarBackground">@color/colorPrimary</color>
+    <color name="strokeColor" >@color/lightMediumGray</color>
+    <color name="cardBackgroundColor" >@color/white</color>
+    <color name="titleColor" >@color/darker</color>
+    
+    <color name="statusBarColor">@color/colorPrimaryDark</color>
+    <color name="contexualStatusBarColor">@color/darker</color>
+    <color name="contexualActionBarColor">@color/dark</color>
+
+    <color name="cardBackgroundLightColor">#566200EA</color>
 </resources>

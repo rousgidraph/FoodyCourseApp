@@ -1,9 +1,12 @@
 package art.muriuki.foodycourseapp.models
 
 
-import art.muriuki.foodycourseapp.models.ExtendedIngredient
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
 
+@Parcelize
 data class Result(
     @SerializedName("aggregateLikes")
     val aggregateLikes: Int,
@@ -14,25 +17,21 @@ data class Result(
     val dairyFree: Boolean,
 
     @SerializedName("extendedIngredients")
-    val extendedIngredients: List<ExtendedIngredient>,
+    val extendedIngredients: @RawValue List<ExtendedIngredient>,
 
     @SerializedName("glutenFree")
     val glutenFree: Boolean,
 
     @SerializedName("id")
-    val id: Int,
+    val recipeId: Int,
     @SerializedName("image")
     val image: String,
-
-    @SerializedName("license")
-    val license: String,
-
 
     @SerializedName("readyInMinutes")
     val readyInMinutes: Int,
 
     @SerializedName("sourceName")
-    val sourceName: String,
+    val sourceName: String?,
     @SerializedName("sourceUrl")
     val sourceUrl: String,
 
@@ -50,4 +49,4 @@ data class Result(
     @SerializedName("veryHealthy")
     val veryHealthy: Boolean,
 
-    )
+    ): Parcelable

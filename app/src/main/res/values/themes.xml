@@ -6,5 +6,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.FoodyCourseApp" parent="Base.Theme.FoodyCourseApp" />
+    <style name="Theme.FoodyCourseApp" parent="Base.Theme.FoodyCourseApp" >
+        <item name="android:actionModeBackground">@color/contexualActionBarColor</item>
+    </style>
 </resources>
